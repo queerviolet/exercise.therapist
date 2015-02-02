@@ -43,12 +43,12 @@ name.
 Design question: Where should the therapist store the client's name?
 
 Now, add a few responses where the therapist uses the client's name in the
-response. "I think that's very insightful, Ashi.""
+response. "I think that's very insightful, Ashi."
 
 I feel more seen already.
 
-You'll have to figure out how to store the therapist's represent the user's
-name in the set of possible responses.
+You'll have to figure out how to represent the user's name in the response
+strings, since you won't know it until the user types it.
 
 ## 3. A robot that truly understands you ##
 
@@ -87,7 +87,8 @@ like "the" is coming up for you a lot...")
 What's the right data structure to use to store this? How will you need to
 access that structure to find words that have been said more than a threshold
 number of times? You'll find that your Javascript code to do this will be more
-verbose than the Ruby code would be. That's okay.
+verbose than the Ruby code would be. That's okay. Javascript is just a special
+cookie like that.
 
 ## 4. Reflect and understand the skeleton code ##
 
@@ -110,15 +111,15 @@ stressed, now you have someone you can talk to about it.
 
 In 1964, Joseph Weizenbaum wrote [ELIZA](http://en.wikipedia.org/wiki/ELIZA),
 ELIZA is a robotic therapist not unlike ours, though ELIZA has a larger
-repertoire. He was surprised and disturbed to see how quickly users developed
-an attachment to the program. For many users in 1964, ELIZA passed the [Turing
+repertoire. He was surprised to see how quickly users developed an attachment
+to the program. For many users in 1964, ELIZA passed the [Turing
 Test](http://en.wikipedia.org/wiki/Turing_test).
 
 Of course, 1964 was a more innocent time, and the Turing Test is a moving
-target as people become more and more aware of and cynical towards computers.
+target as people become more and more aware of, and cynical towards, computers.
 I believe my robot therapist loves me, but I know in my heart of hearts that
 it's just emitting canned responses. Weizenbaum was disturbed by the response
-to his program, and wrote prolifically on the limits of artificial
+to his program and wrote prolifically on the limits of artificial
 intelligence. Programs, he
 [wrote](http://en.wikipedia.org/wiki/Computer_Power_and_Human_Reason), can
 make decisions, but can never render judgments, which require lived human
@@ -127,13 +128,14 @@ experience.
 Of course, the mass of our recorded experiences has grown impressively large,
 and the programs that seek to parse those records are highly sophisticated.
 The process Google goes through to produce a single results page is extensive,
-and relies on a massive network of what are, essentially, the softare's
-beliefs about the world. Debugging bad search results feels not unlike
-performing a kind of psychotherapy—slowly digging deeper and deeper into a
-complex web of beliefs until you encounter beliefs which are clearly distorted
-or unsupported, and gently correcting them. The beliefs are ultimately just
-numbers, but ultimately, so are you. At what point will Google's semantic
-graph constitute understanding?
+and relies on a massive, interconnected, ever-evolving network of what are,
+essentially, the softare's beliefs about the world. Debugging bad search
+results feels not unlike performing a kind of psychotherapy—slowly digging
+deeper and deeper into a complex web of beliefs until you encounter beliefs
+which are clearly distorted or unsupported, and gently correcting them. The
+beliefs in Google's search engine are just numbers, but ultimately, so are
+you. At what point will Google's semantic graph constitute understanding and
+experience?
 
 ELIZA is still with us. If you have Siri on your phone, ask her to tell you a
 story about it.
