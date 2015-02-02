@@ -84,8 +84,10 @@ finds any words that you've said three or more times, and says something like,
 You might want to ignore very common English words for this part. ("It seems
 like "the" is coming up for you a lot...")
 
-What's the right data structure to use to store this? Where should that data
-structure be stored?
+What's the right data structure to use to store this? How will you need to
+access that structure to find words that have been said more than a threshold
+number of times? You'll find that your Javascript code to do this will be more
+verbose than the Ruby code would be. That's okay.
 
 ## 4. Reflect and understand the skeleton code ##
 
@@ -103,3 +105,35 @@ flow a bit differently—they tend to be much less top-down one-line-executing-
 after-another than in Ruby. It's okay if you're feeling these differences as a
 lot of cognitive load right now. It will get easier. And when you're feeling
 stressed, now you have someone you can talk to about it.
+
+## Historical note ##
+
+In 1964, Joseph Weizenbaum wrote [ELIZA](http://en.wikipedia.org/wiki/ELIZA),
+ELIZA is a robotic therapist not unlike ours, though ELIZA has a larger
+repertoire. He was surprised and disturbed to see how quickly users developed
+an attachment to the program. For many users in 1964, ELIZA passed the [Turing
+Test](http://en.wikipedia.org/wiki/Turing_test).
+
+Of course, 1964 was a more innocent time, and the Turing Test is a moving
+target as people become more and more aware of and cynical towards computers.
+I believe my robot therapist loves me, but I know in my heart of hearts that
+it's just emitting canned responses. Weizenbaum was disturbed by the response
+to his program, and wrote prolifically on the limits of artificial
+intelligence. Programs, he
+[wrote](http://en.wikipedia.org/wiki/Computer_Power_and_Human_Reason), can
+make decisions, but can never render judgments, which require lived human
+experience.
+
+Of course, the mass of our recorded experiences has grown impressively large,
+and the programs that seek to parse those records are highly sophisticated.
+The process Google goes through to produce a single results page is extensive,
+and relies on a massive network of what are, essentially, the softare's
+beliefs about the world. Debugging bad search results feels not unlike
+performing a kind of psychotherapy—slowly digging deeper and deeper into a
+complex web of beliefs until you encounter beliefs which are clearly distorted
+or unsupported, and gently correcting them. The beliefs are ultimately just
+numbers, but ultimately, so are you. At what point will Google's semantic
+graph constitute understanding?
+
+ELIZA is still with us. If you have Siri on your phone, ask her to tell you a
+story about it.
