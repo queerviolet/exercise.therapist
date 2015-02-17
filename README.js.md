@@ -15,8 +15,8 @@ looks a little overwhelming at first. It contains code to take input from the
 user and write out a log of the therapy session to the browser window. You can
 look at it to understand what it's doing (and please do!), but the only
 function you need to write is `Therapist.prototype.listen`. This function
-takes a user's feelings (whatever the user just typed), and will call `say` to
-print the therapist's responses.
+takes a user's feelings (whatever the user just typed), and will call
+`this.session.say` to emit the therapist's responses.
 
 Therapists only really say three or four things. Some variation of "What does
 that bring up for you?", "How are you feeling in your body right now?", and
@@ -45,7 +45,10 @@ response. "I think that's very insightful, Ashi."
 I feel more seen already.
 
 You'll have to figure out how to represent the user's name in the response
-strings, since you won't know it until the user types it.
+strings, since you won't know it until the user types it. Javascript helps you
+less than Ruby here, because it doesn't provide a string formatting operator.
+However, it does provide [String.replace](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/replace). You could start out by just
+`replace`ing `"%{name}"` with the stored name before you `say` it.
 
 ## 3. A robot that truly understands you ##
 
@@ -97,6 +100,18 @@ Session class? How does the Session class interface with the HTML document?
 How does your code look? If I asked you to add a hundred new responses to the
 therapist's repertoire, would it be easy to do? If not, how might you refactor
 your code so that it would be?
+
+**Stretch**: How are you inserting responses into their canned templates? As a
+stretch, write a `fmt(str, values)` function that mimics the basic
+functionality of Ruby's `%` operator. Specifically, it should return a new
+string which is equal to `str`, except that every instance of `%{`*`key`*`}`
+within `str` has been replaced with `values[`*key*`]`. So:
+
+    fmt("I think that's very insightful, %{name}", {name: 'Ashi'});
+      -> "I think that's very insightful, Ashi"
+    fmt("%{name}, I notice that %{word} is coming up for you a lot.",
+        {name: 'Ashi', word: 'chocolate'});
+      -> "Ashi, I notice that chocolate is coming up for you a lot."
 
 Javascript's syntax is quite different from Ruby's, and Javascript programs
 flow a bit differently—they tend to be much less top-down one-line-executing-

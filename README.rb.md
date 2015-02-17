@@ -44,7 +44,7 @@ I feel more seen already.
 
 You'll have to figure out how to represent the user's name in the response
 strings, since you won't know it until the user types it. A common strategy
-is to say "I think that's very insightful, %{name}", and then use the (string formatting operator)[http://ruby-doc.org//core-2.2.0/String.html#method-i-25]
+is to say "I think that's very insightful, %{name}", and then use the [string formatting operator](http://ruby-doc.org//core-2.2.0/String.html#method-i-25)
 to substitute the name before you print it.
 
 ## 3. A robot that truly understands you ##
