@@ -105,7 +105,7 @@ your code so that it would be?
 stretch, write a `fmt(str, values)` function that mimics the basic
 functionality of Ruby's `%` operator. Specifically, it should return a new
 string which is equal to `str`, except that every instance of `%{`*`key`*`}`
-within `str` has been replaced with `values[`*key*`]`. So:
+within `str` has been replaced with `values[`*`key`*`]`. So:
 
     fmt("I think that's very insightful, %{name}", {name: 'Ashi'});
       -> "I think that's very insightful, Ashi"
