@@ -1,8 +1,8 @@
 # exercise.therapist
 Tell this robot about your feelings.
 
-Complete this exercise in both (Ruby)[README.rb.md] and
-(Javascript)[README.js.md].
+Complete this exercise in both [Ruby](README.rb.md) and
+[Javascript](README.js.md).
 
 ## 1. Ruby version ##
 
