@@ -90,7 +90,24 @@ number of times? You'll find that your Javascript code to do this will be more
 verbose than the Ruby code would be. That's okay. Javascript is just a special
 cookie like that.
 
-## 4. Stretch: String hash interpolation in Javascript ##
+## 4. Reflect and understand the skeleton code ##
+
+Read over the code that was provided with the exercise and understand what
+it's doing. When is the `Therapist` constructor called? When is your `listen`
+function called? Why is the code broken out into a Therapist class and a
+Session class? How does the Session class interface with the HTML document?
+
+How does your code look? If I asked you to add a hundred new responses to the
+therapist's repertoire, would it be easy to do? If not, how might you refactor
+your code so that it would be?
+
+Javascript's syntax is quite different from Ruby's, and Javascript programs
+flow a bit differently—they tend to be much less top-down one-line-executing-
+after-another than in Ruby. It's okay if you're feeling these differences as a
+lot of cognitive load right now. It will get easier. And when you're feeling
+stressed, now you have someone you can talk to about it.
+
+## 5. Stretch: String hash interpolation in Javascript ##
 
 How are you inserting responses into their canned templates? Are you annoyed
 that Javascript doesn't have a `%` operator, like Ruby does? (I am).
@@ -140,23 +157,6 @@ instance of `_yelling_` with YELLING:
 
     scream("It's _very important_ that you hear _everything_, so I'm _shouting at you_.")
       -> "It's VERY IMPORTANT that you hear EVERYTHING, so I'm SHOUTING AT YOU."
-
-## 5. Reflect and understand the skeleton code ##
-
-Read over the code that was provided with the exercise and understand what
-it's doing. When is the `Therapist` constructor called? When is your `listen`
-function called? Why is the code broken out into a Therapist class and a
-Session class? How does the Session class interface with the HTML document?
-
-How does your code look? If I asked you to add a hundred new responses to the
-therapist's repertoire, would it be easy to do? If not, how might you refactor
-your code so that it would be?
-
-Javascript's syntax is quite different from Ruby's, and Javascript programs
-flow a bit differently—they tend to be much less top-down one-line-executing-
-after-another than in Ruby. It's okay if you're feeling these differences as a
-lot of cognitive load right now. It will get easier. And when you're feeling
-stressed, now you have someone you can talk to about it.
 
 ## Historical note ##
 
