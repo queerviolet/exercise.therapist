@@ -90,7 +90,58 @@ number of times? You'll find that your Javascript code to do this will be more
 verbose than the Ruby code would be. That's okay. Javascript is just a special
 cookie like that.
 
-## 4. Reflect and understand the skeleton code ##
+## 4. Stretch: String hash interpolation in Javascript ##
+
+How are you inserting responses into their canned templates? Are you annoyed
+that Javascript doesn't have a `%` operator, like Ruby does? (I am).
+
+As a stretch, write a `fmt(str, values)` function that mimics the basic functionality of
+Ruby's `%` operator:
+
+    var fmt = function(str, values) {
+      // TODO: return str.replace(some regexp, some function)
+    };
+
+This function has already been declared for you in the Therapy module, you just
+have to write the code for it.
+
+Specifically, it should return a new string which is
+equal to `str`, except that every instance of `%{`*`key`*`}` within `str` has
+been replaced with `values[`*`key`*`]`. So:
+
+    fmt("I think that's very insightful, %{name}", {name: 'Ashi'});
+      -> "I think that's very insightful, Ashi"
+    fmt("%{name}, I notice that %{word} is coming up for you a lot.",
+        {name: 'Ashi', word: 'chocolate'});
+      -> "Ashi, I notice that chocolate is coming up for you a lot."
+
+You will still want to use [String.replace](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/replace), but you'll need to give
+it a [regular expression](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions) as the first argument, and a [function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/replace#Specifying_a_function_as_a_parameter) as the second.
+
+The regular expression needs to match `%{` and then one or more characters
+[which are not](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp#character-sets) `}`, and then `}`. It should use parentheses to [capture](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp#grouping-back-references) the string contained by the curly braces. In order to
+replace every instance of `%{...}`, your regular expression will need the `g` flag (`g` meaning "global match"). Flags go at the very end, after the second `/` in your regular expression.
+
+The function you pass to `String.replace` will be called once for every time
+your regular expression finds a match in the string. The first argument to your
+function will be the full text of the match—`%{name}`, for example—and each
+captured group will be a successive argument—`name`. You don't need the full
+text match—only the captured key is interesting. Your function should look up
+the key in the `values` object and return its value.
+
+Here's an example of a function that does something similar, replacing every
+instance of `_yelling_` with YELLING:
+
+    function scream(str) {
+      return str.replace(/_([^_]+)_/g, function(match, capture) {
+        return capture.toUpperCase();
+      });
+    }
+
+    scream("It's _very important_ that you hear _everything_, so I'm _shouting at you_.")
+      -> "It's VERY IMPORTANT that you hear EVERYTHING, so I'm SHOUTING AT YOU."
+
+## 5. Reflect and understand the skeleton code ##
 
 Read over the code that was provided with the exercise and understand what
 it's doing. When is the `Therapist` constructor called? When is your `listen`
@@ -100,18 +151,6 @@ Session class? How does the Session class interface with the HTML document?
 How does your code look? If I asked you to add a hundred new responses to the
 therapist's repertoire, would it be easy to do? If not, how might you refactor
 your code so that it would be?
-
-**Stretch**: How are you inserting responses into their canned templates? As a
-stretch, write a `fmt(str, values)` function that mimics the basic
-functionality of Ruby's `%` operator. Specifically, it should return a new
-string which is equal to `str`, except that every instance of `%{`*`key`*`}`
-within `str` has been replaced with `values[`*`key`*`]`. So:
-
-    fmt("I think that's very insightful, %{name}", {name: 'Ashi'});
-      -> "I think that's very insightful, Ashi"
-    fmt("%{name}, I notice that %{word} is coming up for you a lot.",
-        {name: 'Ashi', word: 'chocolate'});
-      -> "Ashi, I notice that chocolate is coming up for you a lot."
 
 Javascript's syntax is quite different from Ruby's, and Javascript programs
 flow a bit differently—they tend to be much less top-down one-line-executing-

@@ -14,6 +14,11 @@ var Therapy = (function() {
   };
 
 
+  var fmt = function(str, values) {
+    // Stretch goal: Write this function. See section 4 in README.js.md.
+    // TODO: return str.replace(some regexp, some function);
+  };
+
 
   // Session is a class that extends HTMLElement.
   // It describes the behavior of a <therapy-session> element.
