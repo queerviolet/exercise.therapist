@@ -7,12 +7,14 @@ therapy-session {
   background: lightblue;
   font: 'Crimson Text';
 
-  overflow: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
 }
 
 therapy-msg {
   display: block;
-  margin: 9px;
+  margin: 0; /*9px;*/
 }
 
 therapy-msg.from-therapist {
@@ -23,7 +25,12 @@ therapy-msg.from-user {
 }
 
 therapy-session form {
-  width: 100%;
+  /*width: 100%;*/
+}
+
+therapy-session therapy-log {
+  display: block;
+  overflow: auto;
 }
 
 therapy-session input[type=text] {

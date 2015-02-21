@@ -11,6 +11,7 @@ var Therapy = (function() {
     // TODO: WRITE ME!
     // The therapist should respond to the user's feelings.
     // this.session.say(something)...
+    this.session.say(feelings);
   };
 
 
@@ -44,24 +45,41 @@ var Therapy = (function() {
     var node = document.createElement('therapy-msg');
     node.textContent = msg;
     node.setAttribute('class', 'from-' + from);
-    this.insertBefore(node, this.form);
-    this.scrollTop = this.scrollHeight;
+    var log = this.getElementsByTagName('therapy-log')[0];
+    log.appendChild(node);
+    log.scrollTop = log.scrollHeight;
     return node;
   };
 
-  // Called by the browser when a <therapy-session> tag is created.
+  // Called by the browser when a <therapy-session> tag is created (or found in
+  // the document).
   Session.createdCallback = function() {
-    this.form = this.querySelector('form');
-    this.feelings = this.querySelector('input[type=text]');
+    this.innerHTML = '<therapy-log></therapy-log><form><input type="text"><input type="submit"></form>';
+    this.onFormSubmit = this.onFormSubmit.bind(this);
+  };
+
+  // Called by the browser when a <therapy-session> tag is added to the
+  // document.
+  Session.attachedCallback = function() {
     this.therapist = new Therapist(this);
-    var self = this;
-    this.form.addEventListener('submit', function(event) {
-      event.preventDefault();
-      var feelings = self.feelings.value;
-      self.feelings.value = '';
-      self.hear(feelings);
-      self.therapist.listen(feelings);
-    });
+    this.form = this.getElementsByTagName('form')[0];
+    this.form.addEventListener('submit', this.onFormSubmit);
+  };
+
+  // Called by the browser when a <therapy-session> is removed from the document.
+  Session.detachedCallback = function() {
+    this.form.removeEventListener('submit', this.onFormSubmit);
+  };
+
+  // Called when the user submits their feelings. We add this event listener
+  // when we're attached to the document, and we remove it when we're detached
+  Session.onFormSubmit = function(event) {
+    event.preventDefault();
+    var input = this.querySelector('input[type=text]');
+    var feelings = input.value;
+    input.value = '';
+    this.hear(feelings);
+    this.therapist.listen(feelings);
   };
 
   // Return the contents of our Therapy module.

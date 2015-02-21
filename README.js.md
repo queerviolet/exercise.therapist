@@ -110,7 +110,8 @@ stressed, now you have someone you can talk to about it.
 ## 5. Stretch: String hash interpolation in Javascript ##
 
 How are you inserting responses into their canned templates? Are you annoyed
-that Javascript doesn't have a `%` operator, like Ruby does? (I am).
+that Javascript doesn't have a `%` operator, like Ruby does? I am. Let's fix
+it!
 
 As a stretch, write a `fmt(str, values)` function that mimics the basic functionality of
 Ruby's `%` operator:
@@ -143,8 +144,8 @@ The function you pass to `String.replace` will be called once for every time
 your regular expression finds a match in the string. The first argument to your
 function will be the full text of the match—`%{name}`, for example—and each
 captured group will be a successive argument—`name`. You don't need the full
-text match—only the captured key is interesting. Your function should look up
-the key in the `values` object and return its value.
+text match—only the captured key is interesting. Your function should [look up the key](http://eloquentjavascript.net/04_data.html#properties)
+in the `values` object and return its value.
 
 Here's an example of a function that does something similar, replacing every
 instance of `_yelling_` with YELLING:
@@ -157,6 +158,8 @@ instance of `_yelling_` with YELLING:
 
     scream("It's _very important_ that you hear _everything_, so I'm _shouting at you_.")
       -> "It's VERY IMPORTANT that you hear EVERYTHING, so I'm SHOUTING AT YOU."
+
+Once you've written this, update your therapist to use your new `fmt` function.
 
 ## Historical note ##
 
