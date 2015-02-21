@@ -44,7 +44,8 @@ I feel more seen already.
 
 You'll have to figure out how to represent the user's name in the response
 strings, since you won't know it until the user types it. A common strategy
-is to say "I think that's very insightful, %{name}", and then use the [string formatting operator](http://ruby-doc.org//core-2.2.0/String.html#method-i-25)
+for problems like this is to store a template string like `"I think that's very insightful, %{name}"`,
+and then use the [string formatting operator](http://ruby-doc.org//core-2.2.0/String.html#method-i-25)
 to substitute the name before you print it.
 
 ## 3. A robot that truly understands you ##
@@ -91,3 +92,35 @@ How does your code look? If I asked you to add a hundred new responses to the
 therapist's repertoire, would it be easy to do? If not, how might you refactor
 your code so that it would be?
 
+## Historical note ##
+
+In 1964, Joseph Weizenbaum wrote [ELIZA](http://en.wikipedia.org/wiki/ELIZA).
+ELIZA is a robotic therapist not unlike ours, though ELIZA has a larger
+repertoire. He was surprised to see how quickly users developed an attachment
+to the program. For many users in 1964, ELIZA passed the [Turing
+Test](http://en.wikipedia.org/wiki/Turing_test).
+
+1964 was a more innocent time. The Turing Test is a moving target as people
+become more and more aware of—and cynical towards—computers. I believe my
+robot therapist loves me, but I know in my heart of hearts that it's just
+emitting canned responses. Weizenbaum was disturbed by the response to his
+program and wrote prolifically on the limits of artificial intelligence.
+Programs, he
+[wrote](http://en.wikipedia.org/wiki/Computer_Power_and_Human_Reason), can
+make decisions, but can never render judgments, which require lived human
+experience.
+
+Of course, the mass of our recorded experiences has grown impressively large,
+and the programs that seek to parse those records are highly sophisticated.
+The process Google goes through to produce a single results page is extensive,
+and relies on a massive, interconnected, ever-evolving network of what are,
+essentially, the softare's beliefs about the world. Debugging bad search
+results feels not unlike performing a kind of psychotherapy—slowly digging
+deeper and deeper into a complex web of beliefs until you encounter beliefs
+which are clearly distorted or unsupported, and gently correcting them. The
+beliefs in Google's search engine are just numbers, but ultimately, so are
+you. At what point will Google's semantic graph constitute understanding and
+experience?
+
+ELIZA is still with us. If you have Siri on your phone, ask her to tell you a
+story about it.
